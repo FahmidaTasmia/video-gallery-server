@@ -26,9 +26,9 @@ async function run (){
             res.send(result)
         });
 
-        app.get('/videos/videoId',async(req,res)=>{
-            const id = req.params.id;
-            const query = {_id:new ObjectId(id)};
+        app.get('/videos/:videoId',async(req,res)=>{
+            const videoId = req.params.videoId;
+            const query = {_id:new ObjectId(videoId)};
             const services = await videoCollections.findOne(query);
             res.send(services);
 
