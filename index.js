@@ -19,12 +19,12 @@ async function run (){
         const videoCollections = client.db('videoGallery').collection('videoCollection');
         const tagCollections = client.db('videoGallery').collection('tags');
 
-        // app.get('/videos', async(req,res)=>{
-        //     const query={};
-        //     const cursor = videoCollections.find(query);
-        //     const result = await cursor.toArray();
-        //     res.send(result)
-        // });
+        app.get('/videos', async(req,res)=>{
+            const query={};
+            const cursor = videoCollections.find(query);
+            const result = await cursor.toArray();
+            res.send(result)
+        });
 
       app.get ('/videos',async (tags, search) => {
         let queryString = "";
