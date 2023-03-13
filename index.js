@@ -26,6 +26,19 @@ async function run (){
             res.send(result)
         });
 
+      app.get ('/videos',async (tags, search) => {
+        let queryString = "";
+    
+        if (tags?.length > 0) {
+            queryString += tags.map((tag) => `tags_like=${tag}`).join("&");
+        }
+    
+        if (search !== "") {
+            queryString += `&q=${search}`;
+        }
+        })
+       
+
         app.get('/videos/:videoId',async(req,res)=>{
             const videoId = req.params.videoId;
             const query = {_id:new ObjectId(videoId)};
